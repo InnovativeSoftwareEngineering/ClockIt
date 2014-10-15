@@ -13,7 +13,7 @@ You'll need the following installed before cloning the source code:
 Now you're ready to get the code.
 
 - Clone this project using [your favorite Git client](http://sourcetreeapp.com/)
-- From the Command Line at the root of the cloned source, execute "pip install -r reqs.txt"
+- From the Command Line at the root of the cloned source, execute `pip install -r reqs.txt`
 
 That's it! Now you have Django along with all the other project dependencies, so your environment is all setup and ready to rock!
 
@@ -22,6 +22,6 @@ You can modify the source code using one of your favorite Python [editors](http:
 
 Or, if you find reading boring, here's a quick reference of some Django commands you can use with this project from the root of the cloned source:
 
-- python manage.py migrate
-- python manage.py runserver
-- python manage.py test
+- `python manage.py migrate`
+- `python manage.py runserver`
+- `python manage.py test`

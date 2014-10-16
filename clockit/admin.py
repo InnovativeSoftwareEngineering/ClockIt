@@ -35,7 +35,7 @@ class TimecardUserAdmin(UserAdmin):
         ('Personal Info', {'fields': (
             'first_name',
             'last_name',
-            'date_hired',
+            'hire_date',
             'ssn'
         )}),
     )

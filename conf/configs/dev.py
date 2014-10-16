@@ -6,7 +6,7 @@ Settings for development.
 import os
 
 # Import project modules
-from .common import DEFAULT_TEMPLATE_CONTEXT_PROCESSORS, DEFAULT_MIDDLEWARE_CLASSES, DEFAULT_INSTALLED_APPS
+from conf.configs.common import DEFAULT_TEMPLATE_CONTEXT_PROCESSORS, DEFAULT_MIDDLEWARE_CLASSES, DEFAULT_INSTALLED_APPS
 
 __author__ = 'Alex Laird'
 __copyright__ = 'Copyright 2014, Innovative Software Engineering'
@@ -14,7 +14,7 @@ __version__ = '0.0.1'
 
 
 # Define the base working directory of the application
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), '../../'))
 
 
 # Application definition

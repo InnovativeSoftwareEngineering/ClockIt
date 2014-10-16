@@ -1,6 +1,7 @@
 .DS_Store
 *.pyc
 /.idea/workspace.xml
+/docs/build
 /static
 db.sqlite3
 media/

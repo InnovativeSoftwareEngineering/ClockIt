@@ -6,7 +6,7 @@ Settings for production.
 import os
 
 # Import project modules
-from .common import DEFAULT_TEMPLATE_CONTEXT_PROCESSORS, DEFAULT_MIDDLEWARE_CLASSES, DEFAULT_INSTALLED_APPS
+from conf.configs.common import DEFAULT_TEMPLATE_CONTEXT_PROCESSORS, DEFAULT_MIDDLEWARE_CLASSES, DEFAULT_INSTALLED_APPS
 
 __author__ = 'Alex Laird'
 __copyright__ = 'Copyright 2014, Innovative Software Engineering'
@@ -14,7 +14,7 @@ __version__ = '0.0.1'
 
 
 # Define the base working directory of the application
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), '../../'))
 
 
 # Application definition
@@ -32,19 +32,15 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_TEMPLATE_CONTEXT_PROCESSORS
 
 # Security
 
+ALLOWED_HOSTS = ['www.timecard.iseinc.biz',
+                 'timecard.iseinc.biz']
+
 SECRET_KEY = 'ui(0mu1=%8pfnnuy0i&8dlf*whlfo4_u6&4mlm)c90aoj1_etn'
 CSRF_MIDDLEWARE_SECRET = '7A0+@mDw*5hA=Bzh${L%r;7Hbcut|.7_#)BJcZi{)IGN?Z^1Ya'
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-ALLOWED_HOSTS = ['www.timecard.iseinc.biz',
-                 'timecard.iseinc.biz']
 
 # Logging
-
-ADMINS = (
-    ('ClockIt', 'clockit@iseinc.biz')
-)
-MANAGERS = ADMINS
 
 LOGGING = {
     'version': 1,

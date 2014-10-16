@@ -1,14 +1,13 @@
 """
-Streamlined Django settings runnin test cases.
+Streamlined Django settings running test cases.
 """
 
 # Import system modules
 import os
-import sys
 import logging
 
 # Import project modules
-from .common import DEFAULT_TEMPLATE_CONTEXT_PROCESSORS, DEFAULT_MIDDLEWARE_CLASSES, DEFAULT_INSTALLED_APPS
+from conf.configs.common import DEFAULT_TEMPLATE_CONTEXT_PROCESSORS, DEFAULT_MIDDLEWARE_CLASSES, DEFAULT_INSTALLED_APPS
 
 __author__ = 'Alex Laird'
 __copyright__ = 'Copyright 2014, Innovative Software Engineering'
@@ -16,7 +15,7 @@ __version__ = '0.0.1'
 
 
 # Define the base working directory of the application
-BASE_DIR = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..'))
+BASE_DIR = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), '../../'))
 
 
 # Application definition
@@ -33,14 +32,15 @@ PASSWORD_HASHERS = (
 )
 
 
-# Security configuration
+# Security
 
 SECRET_KEY = 'vb*dxh%m4-!g^=fiozd4t@38j2voupkom-%*8&t%5p+lkfk5em'
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost',
+                 '127.0.0.1']
 
 
-# Logging configuration
+# Logging
 
 # DO_LOGGING is false by default to improve efficiency and speed of tests, but it can be set to true to enable logging
 # when writing or debugging tests
@@ -105,7 +105,7 @@ else:
     logging.disable(logging.ERROR)
 
 
-# Database configuration
+# Database
 
 # STAGING_DATABASE is false by default to improve efficiency and speed of tests, but it can be set to true to ensure all tests
 # still pass when using the staging server's database

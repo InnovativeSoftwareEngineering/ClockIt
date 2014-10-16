@@ -11,7 +11,7 @@ __version__ = '0.0.1'
 
 
 # Define the base working directory of the application
-BASE_DIR = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..'))
+BASE_DIR = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(__file__)), '../../'))
 
 
 # ############################
@@ -35,6 +35,8 @@ DEFAULT_INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     # Project modules
     'timecard',
 )
@@ -57,7 +59,7 @@ DEFAULT_TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
-    'clockit.processors.template',
+    'conf.processors.template',
 )
 
 #############################
@@ -66,6 +68,7 @@ DEFAULT_TEMPLATE_CONTEXT_PROCESSORS = (
 
 # Application definition
 
+SITE_ID = 1
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 AUTH_USER_MODEL = 'timecard.User'
 LOGIN_URL = '/login'
@@ -75,7 +78,7 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 # Internationalization
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
@@ -97,3 +100,9 @@ DEFAULT_FROM_EMAIL = "ClockIt <clockit@iseinc.biz>"
 EMAIL_HOST = 'smtp.iseinc.biz'
 EMAIL_HOST_USER = 'clockit@iseinc.biz'
 EMAIL_HOST_PASSWORD = 'clockit_password'
+
+SERVER_EMAIL = 'it@iseinc.biz'
+ADMINS = (
+    ('Alex Laird', 'alexlaird@iseinc.biz'),
+)
+MANAGERS = ADMINS

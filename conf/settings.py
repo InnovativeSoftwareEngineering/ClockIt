@@ -10,7 +10,7 @@ __author__ = 'Alex Laird'
 __copyright__ = 'Copyright 2014, Innovative Software Engineering'
 __version__ = '0.0.1'
 
-common_conf_module = __import__('conf.common', globals(), locals(), 'clockit')
+common_conf_module = __import__('conf.configs.common', globals(), locals(), 'clockit')
 
 # Load common conf properties into the local scope
 for setting in dir(common_conf_module):
@@ -25,7 +25,7 @@ if 'test' not in sys.argv:
 
     # If the hostname is not in the list of confs, use 'dev' conf
     hostname = socket.gethostname()
-    conf_module = __import__('conf.%s' % (confs[hostname] if hostname in confs.keys() else 'dev'),
+    conf_module = __import__('conf.configs.%s' % (confs[hostname] if hostname in confs.keys() else 'dev'),
                              globals(),
                              locals(), 'clockit')
 
@@ -35,7 +35,7 @@ if 'test' not in sys.argv:
             locals()[setting] = getattr(conf_module, setting)
 # If we're running tests, run a streamlined settings file for efficiency
 else:
-    test_conf_module = __import__('conf.test', globals(), locals(), 'clockit')
+    test_conf_module = __import__('conf.configs.test', globals(), locals(), 'clockit')
 
     # Load test conf properties into the local scope
     for setting in dir(test_conf_module):

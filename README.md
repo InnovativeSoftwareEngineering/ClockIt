@@ -25,3 +25,7 @@ Or, if you find reading boring, here's a quick reference of some Django commands
 - `python manage.py migrate`
 - `python manage.py runserver`
 - `python manage.py test`
+
+The "docs" folder contains scripts to generate documentation. Execute the following to generate the latest and greatest documentation relative to this folder using Sphinx:
+
+- `make html`

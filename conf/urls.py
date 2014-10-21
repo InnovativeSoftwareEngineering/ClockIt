@@ -3,11 +3,11 @@ Base URLs.
 """
 
 # Import Django modules
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
+from django.conf.urls import include, url
 
 # Import project modules
 from clockit.admin import clockit_admin_site
+from clockit.views import *
 from timecard.views import *
 
 __author__ = 'Alex Laird'

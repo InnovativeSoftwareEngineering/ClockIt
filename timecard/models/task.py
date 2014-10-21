@@ -1,5 +1,8 @@
 """
 The model for a Task.
+
+Tasks make up the contents of a TimeCard. A Task is an individual chargeable portion of time to a particular
+Project/Deliverable, and Tasks are ultimately what is submitted for evaluation with the TimeCard.
 """
 
 # Import system modules
@@ -19,5 +22,11 @@ class Task(models.Model):
     """
     The model for a Task.
     """
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=300, null=True, blank=True)
+    begin = models.DateTimeField()
+    end = models.DateTimeField()
+    description = models.TextField(null=True, blank=True)
+
+    # Foreign keys
+    project = models.ForeignKey('clockit.Project')
+    deliverable = models.ForeignKey('clockit.Deliverable')
+    activity = models.ForeignKey('clockit.Activity')

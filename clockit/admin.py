@@ -8,6 +8,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.conf import settings
 
 # Import project modules
+from clockit.models import *
 from timecard.models import *
 from forms import UserChangeForm, UserCreationForm
 
@@ -60,13 +61,13 @@ class ClockItAdminSite(AdminSite):
     site_header = settings.PROJECT_NAME + ' Administration'
     site_title = site_header
     index_title = settings.PROJECT_NAME
+    login_template = 'login.html'
 
 # Instantiate the Admin site
 clockit_admin_site = ClockItAdminSite()
 
 # Register the models in the Admin
 clockit_admin_site.register(Activity)
-clockit_admin_site.register(Customer)
 clockit_admin_site.register(Deliverable)
 clockit_admin_site.register(Project)
 clockit_admin_site.register(Task)

@@ -28,7 +28,7 @@ class User(AbstractBaseUser):
     """
 
     # Basic user and authentication fields
-    username = models.CharField(_('username'), max_length=30, unique=True,
+    username = models.CharField(_('username'), max_length=255, unique=True,
                                 help_text=_('Required. 30 characters or fewer. Letters, digits and '
                                             '@/./+/-/_ only.'),
                                 validators=[
@@ -45,8 +45,8 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
 
     # Personal info fields
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     hire_date = models.DateField(default=timezone.now, null=True, blank=True)
     ssn = models.CharField(max_length=9, null=True, blank=True)
     security_level = models.PositiveIntegerField(choices=UserManager.SECURITY_LEVELS, default=UserManager.USER)
@@ -72,7 +72,7 @@ class User(AbstractBaseUser):
 
     def get_full_name(self):
         """
-        Retreieve the long name for the user.
+        Retrieve the long name for the user.
 
         :return: The user's email address.
         """
@@ -80,7 +80,7 @@ class User(AbstractBaseUser):
 
     def get_short_name(self):
         """
-        Retreieve the short name for the user.
+        Retrieve the short name for the user.
 
         :return: The user's email address.
         """

@@ -6,7 +6,7 @@ Form for user creation.
 from django import forms
 
 # Import project modules
-from timecard.models import User
+from clockit.models import User
 
 __author__ = 'Alex Laird'
 __copyright__ = 'Copyright 2014, Innovative Software Engineering'

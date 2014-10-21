@@ -1,5 +1,8 @@
 """
-The model for a Task.
+The model for a TimeCard.
+
+A TimeCard is the aggregate of all Tasks a user has charged to within a window of time. Depending on the submission
+window, a TimeCard must be submitted at the end of the window, then a new TimeCard will be created.
 """
 
 # Import system modules
@@ -17,17 +20,16 @@ logger = logging.getLogger(__name__)
 
 class TimeCard(models.Model):
     """
-    The model for a Task.
+    The model for a TimeCard.
     """
     begin = models.DateTimeField()
     end = models.DateTimeField()
-    record_status = models.PositiveIntegerField()
-    description = models.CharField(max_length=300, null=True, blank=True)
+    submitted = models.BooleanField(default=False)
+    description = models.TextField(null=True, blank=True)
 
     # Foreign keys
-    user = models.ForeignKey('User')
-    project = models.ForeignKey('Project')
-    deliverable = models.ForeignKey('Deliverable', null=True, blank=True)
-    activity = models.ForeignKey('Activity', null=True, blank=True)
-    task = models.ForeignKey('Task', null=True, blank=True)
-    approved_by = models.ForeignKey('User', related_name='approved_by_user', null=True, blank=True)
+    user = models.ForeignKey('clockit.User')
+    approved_by = models.ForeignKey('clockit.User', related_name='approved_by_user', null=True, blank=True)
+
+    # A TimeCard is made up of many tasks within its window
+    tasks = models.ManyToManyField('Task')

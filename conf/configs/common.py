@@ -38,6 +38,7 @@ DEFAULT_INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.sitemaps',
     # Project modules
+    'clockit',
     'timecard',
 )
 
@@ -70,7 +71,7 @@ DEFAULT_TEMPLATE_CONTEXT_PROCESSORS = (
 
 SITE_ID = 1
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-AUTH_USER_MODEL = 'timecard.User'
+AUTH_USER_MODEL = 'clockit.User'
 LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 ROOT_URLCONF = 'conf.urls'

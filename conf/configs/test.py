@@ -107,23 +107,9 @@ else:
 
 # Database
 
-# STAGING_DATABASE is false by default to improve efficiency and speed of tests, but it can be set to true to ensure all tests
-# still pass when using the staging server's database
-STAGING_DATABASE = False
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.test.sqlite3'),
     }
 }
-if STAGING_DATABASE:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'HOST': 'timecard.iseinc.biz',
-            'NAME': 'clockit',
-            'USER': 'clockit',
-            'PASSWORD': 'clockit_password',
-        }
-    }

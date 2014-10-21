@@ -5,3 +5,4 @@
 /static
 db.sqlite3
 media/
+conf/configs/prod.py

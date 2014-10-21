@@ -113,6 +113,14 @@ LOGGING = {
     }
 }
 
+# Email settings
+
+# The dev SMTP server can be started with the following command:
+# python -m smtpd -n -c DebuggingServer localhost:1025
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+DEFAULT_FROM_EMAIL = "ClockIt <clockit@iseinc.biz>"
+
 # Database
 
 DATABASES = {

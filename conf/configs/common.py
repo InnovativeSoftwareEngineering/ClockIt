@@ -95,13 +95,6 @@ STATIC_URL = '/static/'
 
 # Email settings
 
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = "ClockIt <clockit@iseinc.biz>"
-EMAIL_HOST = 'smtp.iseinc.biz'
-EMAIL_HOST_USER = 'clockit@iseinc.biz'
-EMAIL_HOST_PASSWORD = 'clockit_password'
-
 SERVER_EMAIL = 'it@iseinc.biz'
 ADMINS = (
     ('Alex Laird', 'alexlaird@iseinc.biz'),

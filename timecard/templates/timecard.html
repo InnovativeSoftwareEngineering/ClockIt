@@ -1,7 +1,23 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block title %}{{ PROJECT_NAME }} | Timecard{% endblock %}
 
-{% block body_div %}
+{% block page_header %}
+<link rel="stylesheet" href="{% static "css/fullcalendar.css" %}" type="text/css" />
+<link rel="stylesheet" href="{% static "css/fullcalendar.print.css" %}" type="text/css" media="print" />
 
+<script type="application/javascript" src="{% static "js/moment.min.js" %}" charset="utf-8"></script>
+<script type="application/javascript" src="{% static "js/fullcalendar.js" %}" charset="utf-8"></script>
+<script type="application/javascript" src="{% static "js/gcal.js" %}" charset="utf-8"></script>
+<script type="application/javascript" src="{% static "js/timecard.js" %}" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-6">
+        <div id="today-details"></div>
+    </div>
+    <div class="col-sm-6">
+        <div id="calendar"></div>
+    </div>
 {% endblock %}

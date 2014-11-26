@@ -50,6 +50,7 @@ class User(AbstractBaseUser):
     hire_date = models.DateField(default=timezone.now, null=True, blank=True)
     ssn = models.CharField(max_length=9, null=True, blank=True)
     security_level = models.PositiveIntegerField(choices=UserManager.SECURITY_LEVELS, default=UserManager.USER)
+    time_zone = models.CharField(max_length=255, default='America/Chicago', choices=UserManager.TIME_ZONE_CHOICES)
 
     # Foreign keys
     manager = models.ForeignKey('User', related_name='manager_user', null=True, blank=True)

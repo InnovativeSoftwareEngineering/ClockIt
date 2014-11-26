@@ -29,4 +29,11 @@ urlpatterns = [
     # Authenticated URLs
     url(r'^timecard$', timecard, name='timecard'),
     url(r'^settings$', settings, name='settings'),
+
+    # API URLs
+    url(r'^events_feed$', events_feed, name='events_feed'),
+    url(r'^event/(\d+)$', event, name='event'),
+    url(r'^event/add$', add_event, name='add_event'),
+    url(r'^event/edit/(\d+)$', edit_event, name='edit_event'),
+    url(r'^event/delete/(\d+)$', delete_event, name='delete_event'),
 ]

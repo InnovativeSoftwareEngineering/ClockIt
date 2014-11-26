@@ -5,10 +5,14 @@ View entrance functions.
 # Import system modules
 import logging
 
+# Import third-party modules
+import pytz
+
 # Import Django modules
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
+from django.utils import timezone
 from django.http import HttpResponseRedirect
 
 # Import project modules
@@ -83,4 +87,6 @@ def forgot(request):
 
 @login_required
 def settings(request):
+    timezone.activate(pytz.timezone(request.user.time_zone))
+
     return render(request, "settings.html")

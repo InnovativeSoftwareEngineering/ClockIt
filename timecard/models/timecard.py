@@ -22,7 +22,7 @@ class TimeCard(models.Model):
     """
     The model for a TimeCard.
     """
-    begin = models.DateTimeField()
+    start = models.DateTimeField()
     end = models.DateTimeField()
     submitted = models.BooleanField(default=False)
     description = models.TextField(null=True, blank=True)
@@ -30,6 +30,3 @@ class TimeCard(models.Model):
     # Foreign keys
     user = models.ForeignKey('clockit.User')
     approved_by = models.ForeignKey('clockit.User', related_name='approved_by_user', null=True, blank=True)
-
-    # A TimeCard is made up of many tasks within its window
-    tasks = models.ManyToManyField('Task')

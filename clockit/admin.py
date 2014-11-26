@@ -37,14 +37,15 @@ class TimecardUserAdmin(UserAdmin):
             'first_name',
             'last_name',
             'hire_date',
-            'ssn'
+            'ssn',
+            'time_zone'
         )}),
     )
 
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'security_level')}
+            'fields': ('first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'security_level', 'time_zone')}
         ),
     )
     # Fields on which the admin can search

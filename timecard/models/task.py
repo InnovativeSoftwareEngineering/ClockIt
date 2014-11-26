@@ -22,7 +22,8 @@ class Task(models.Model):
     """
     The model for a Task.
     """
-    begin = models.DateTimeField()
+    title = models.CharField(max_length=255)
+    start = models.DateTimeField()
     end = models.DateTimeField()
     description = models.TextField(null=True, blank=True)
 
@@ -30,3 +31,4 @@ class Task(models.Model):
     project = models.ForeignKey('clockit.Project')
     deliverable = models.ForeignKey('clockit.Deliverable')
     activity = models.ForeignKey('clockit.Activity')
+    timecard =  models.ForeignKey('TimeCard')
